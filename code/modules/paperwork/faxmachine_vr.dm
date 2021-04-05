@@ -10,7 +10,7 @@
 	var faxid = "[num2text(world.realtime,12)]_[rand(9999)+1]"
 	if (istype(fax, /obj/item/weapon/paper))
 		var/obj/item/weapon/paper/P = fax
-		var/text = "<HTML><HEAD><TITLE>[P.name]</TITLE></HEAD><BODY>[P.info][P.stamps]</BODY></HTML>";
+		var/text = "<HTML><meta charset=\"UTF-8\"><HEAD><TITLE>[P.name]</TITLE></HEAD><BODY>[P.info][P.stamps]</BODY></HTML>";
 		rustg_file_write(text, "[config.fax_export_dir]/fax_[faxid].html")
 	else if (istype(fax, /obj/item/weapon/photo))
 		var/obj/item/weapon/photo/H = fax
@@ -85,13 +85,13 @@
 				var/faxmsg = return_file_text("[config.fax_export_dir]/fax_[curid].html")
 				contents += "\nFAX PAGE [page]: ```[strip_html_properly(faxmsg)]```"
 
-		world.TgsTargetedChatBroadcast("MULTIFAX: [sanitize(faxname)] / [sanitize(sent.name)] - SENT BY: [sanitize(sender.name)] - [faxids] [contents]", TRUE) 
+		world.TgsTargetedChatBroadcast("MULTIFAX: [sanitize(faxname)] / [sanitize(sent.name)] - SENT BY: [sanitize(sender.name)] - [faxids] [contents]", TRUE)
 	else
 		var/contents = ""
 		if((!config.nodebot_enabled) && config.discord_faxes_autoprint)
 			var/faxmsg = return_file_text("[config.fax_export_dir]/fax_[faxid].html")
 			contents += "\nFAX: ```[strip_html_properly(faxmsg)]```"
-		world.TgsTargetedChatBroadcast("FAX: [sanitize(faxname)] / [sanitize(sent.name)] - SENT BY: [sanitize(sender.name)] - FAXID: **[sanitize(faxid)]** [contents]", TRUE) 
+		world.TgsTargetedChatBroadcast("FAX: [sanitize(faxname)] / [sanitize(sent.name)] - SENT BY: [sanitize(sender.name)] - FAXID: **[sanitize(faxid)]** [contents]", TRUE)
 	//YW EDIT END
 
 //

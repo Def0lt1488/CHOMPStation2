@@ -160,10 +160,10 @@
 
 /obj/item/weapon/paper/proc/show_content(var/mob/user, var/forceshow=0)
 	if(!(istype(user, /mob/living/carbon/human) || istype(user, /mob/observer/dead) || istype(user, /mob/living/silicon)) && !forceshow)
-		user << browse("<HTML><HEAD><TITLE>[name]</TITLE></HEAD><BODY>[stars(info)][stamps]</BODY></HTML>", "window=[name]")
+		user << browse("<HTML><meta charset=\"UTF-8\"><HEAD><TITLE>[name]</TITLE></HEAD><BODY>[stars(info)][stamps]</BODY></HTML>", "window=[name]")
 		onclose(user, "[name]")
 	else
-		user << browse("<HTML><HEAD><TITLE>[name]</TITLE></HEAD><BODY>[info][stamps]</BODY></HTML>", "window=[name]")
+		user << browse("<HTML><meta charset=\"UTF-8\"><HEAD><TITLE>[name]</TITLE></HEAD><BODY>[info][stamps]</BODY></HTML>", "window=[name]")
 		onclose(user, "[name]")
 
 /obj/item/weapon/paper/verb/rename()
@@ -369,7 +369,7 @@
 		t = replacetext(t, "\[row\]", "</td><tr>")
 		t = replacetext(t, "\[cell\]", "<td>")
 		t = replacetext(t, "\[logo\]", "<img src = https://raw.githubusercontent.com/CHOMPStation2/CHOMPStation2/master/html/images/ntlogo.png>") //CHOMPEdit
-		t = replacetext(t, "\[sglogo\]", "<img src = https://raw.githubusercontent.com/CHOMPStation2/CHOMPStation2/master/html/images/sglogo.png>") //CHOMPEdit 
+		t = replacetext(t, "\[sglogo\]", "<img src = https://raw.githubusercontent.com/CHOMPStation2/CHOMPStation2/master/html/images/sglogo.png>") //CHOMPEdit
 
 		t = "<font face=\"[deffont]\" color=[P ? P.colour : "black"]>[t]</font>"
 	else // If it is a crayon, and he still tries to use these, make them empty!
@@ -511,7 +511,7 @@
 
 		update_space(t)
 
-		usr << browse("<HTML><HEAD><TITLE>[name]</TITLE></HEAD><BODY>[info_links][stamps]</BODY></HTML>", "window=[name]") // Update the window
+		usr << browse("<HTML><meta charset=\"UTF-8\"><HEAD><TITLE>[name]</TITLE></HEAD><BODY>[info_links][stamps]</BODY></HTML>", "window=[name]") // Update the window
 
 		playsound(src, pick('sound/bureaucracy/pen1.ogg','sound/bureaucracy/pen2.ogg'), 10)
 
@@ -590,7 +590,7 @@
 		if ( istype(RP) && RP.mode == 2 )
 			RP.RenamePaper(user,src)
 		else
-			user << browse("<HTML><HEAD><TITLE>[name]</TITLE></HEAD><BODY>[info_links][stamps]</BODY></HTML>", "window=[name]")
+			user << browse("<HTML><meta charset=\"UTF-8\"><HEAD><TITLE>[name]</TITLE></HEAD><BODY>[info_links][stamps]</BODY></HTML>", "window=[name]")
 		return
 
 	else if(istype(P, /obj/item/weapon/stamp) || istype(P, /obj/item/clothing/gloves/ring/seal))

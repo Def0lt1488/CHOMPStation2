@@ -41,7 +41,7 @@ proc/admin_notice(var/message, var/rights)
 		to_chat(usr, "Error: you are not an admin!")
 		return
 
-	var/body = "<html><head><title>Options for [M.key]</title></head>"
+	var/body = "<html><meta charset=\"UTF-8\"><head><title>Options for [M.key]</title></head>"
 	body += "<body>Options panel for <b>[M]</b>"
 	if(M.client)
 		body += " played by <b>[M.client]</b> "
@@ -285,7 +285,7 @@ proc/admin_notice(var/message, var/rights)
 	if (!istype(src,/datum/admins))
 		to_chat(usr, "Error: you are not an admin!")
 		return
-	var/dat = "<html><head><title>Info on [key]</title></head>"
+	var/dat = "<html><meta charset=\"UTF-8\"><head><title>Info on [key]</title></head>"
 	dat += "<body>"
 
 	var/p_age = "unknown"

@@ -8,8 +8,8 @@
 
 
 /datum/event2/event/pda_spam
-	length_lower_bound = 30 MINUTES
-	length_upper_bound = 1 HOUR
+	length_lower_bound = 1 MINUTES
+	length_upper_bound = 0 HOUR
 	var/spam_debug = FALSE // If true, notices of the event sending spam go to `log_debug()`.
 	var/last_spam_time = null // world.time of most recent spam.
 	var/next_spam_attempt_time = 0 // world.time of next attempt to try to spam.
@@ -37,7 +37,7 @@
 	for(var/obj/item/device/pda/check_pda in sortAtom(PDAs))
 		if (!check_pda.owner || check_pda == src || check_pda.hidden)
 			continue
-		
+
 		var/datum/data/pda/app/messenger/M = check_pda.find_program(/datum/data/pda/app/messenger)
 		if(!M || M.toff)
 			continue

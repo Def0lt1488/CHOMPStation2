@@ -80,7 +80,7 @@ SUBSYSTEM_DEF(vote)
 		if(transfer_votes / total_votes > 0.7)
 			greatest_votes = transfer_votes
 			. = list("Initiate Crew Transfer")
-		else 
+		else
 			greatest_votes = extend_votes
 			. = list("Extend the Shift")
 	else
@@ -287,7 +287,7 @@ SUBSYSTEM_DEF(vote)
 		if(C.holder.rights & R_ADMIN|R_EVENT)
 			admin = TRUE
 
-	. = "<html><head><title>Voting Panel</title></head><body>"
+	. = "<html><meta charset=\"UTF-8\"><head><title>Voting Panel</title></head><body>"
 	if(mode)
 		if(question)
 			. += "<h2>Vote: '[question]'</h2>"
